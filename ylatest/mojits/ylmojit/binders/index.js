@@ -62,6 +62,7 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 					me.processTwitter(twitter);
 					me.processWeather(weather);
 				} catch(e) {
+					Y.log('Error: ' + e);
 				} finally {
 					me.city.removeAttribute('disabled');
 				}
@@ -92,15 +93,23 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 			var l = data.length,
 				msg = [];
 
-			if(l == 0) {
-				this.events.set('innerHTML', 'No events found');
+			Y.log('[processEvents] data: ' + Y.JSON.stringify(data));
+			Y.log('[processEvents] l: ' + l);
+			if(!l) {
+				if(l === undefined && (data.ticket_url || data.venue_url || data.url) && (data.name || data.description)) {
+					data.name = data.name || data.description || 'Not Provided';
+					data.ticket_url = data.ticket_url || data.venue_url || data.url || 'javascript:void(0)';
+					this.events.set('innerHTML', Y.Lang.sub(EVENT_FMT, data));
+				} else {
+					this.events.set('innerHTML', 'No events found');
+				}
 				return;
 			}
 
 			for(var idx = 0; idx < l; idx++)
 			{
 				//msg.push(Y.JSON.stringify(data[idx]));
-				data[idx].name = data[idx].name || 'Not Provided';
+				data[idx].name = data[idx].name || data[idx].description || 'Not Provided';
 				data[idx].ticket_url = data[idx].ticket_url || data[idx].venue_url || data[idx].url || 'javascript:void(0)';
 				if(data[idx].name.length > 30) {
 					data[idx].name = data[idx].name.substring(0, 30) + '&#8230;';
