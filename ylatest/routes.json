@@ -1,0 +1,8 @@
+[{
+    "settings": [ "master" ],
+	"root": {
+		"path": "/",
+		"call": "main_ui.index",
+		"verbs": [ "GET", "POST"]
+	}
+}]

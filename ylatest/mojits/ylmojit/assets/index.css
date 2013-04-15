@@ -1,0 +1,31 @@
+
+.hack-container .b {
+	font-weight: bold;
+}
+
+#results {
+	margin: 20px 10px;
+}
+
+#results > div {
+	float: left;
+	border: 1px solid #c3c3c3;
+	border-radius: 2px;
+	padding: 4px;
+	width: 250px;
+	height: 400px;
+	margin: 5px;
+	overflow: auto;
+}
+
+.hack-container .item {
+	border-bottom: 1px solid #666;
+}
+
+#results:after {
+	clear: both;
+}
+
+#results:before {
+	clear: both;
+}

@@ -1,0 +1,34 @@
+[
+	{
+		"settings": [ "master" ],
+		"appPort": "8666",
+		"specs": {
+			"main_ui": {
+				"type": "HTMLFrameMojit",
+				"config": {
+					"deploy": true,
+					"title": "Y! Latest in Town",
+					"child": { "type": "ylmojit" },
+					"assets": {
+						"top": {
+							"css": [
+								"http://yui.yahooapis.com/3.9.1/build/cssreset/cssreset-min.css",
+								"http://yuilibrary.com/combo/css?main-min.css&amp;docs-min.css"
+							]
+						}
+					}
+				}
+			}
+		}
+	},
+	{
+		"settings": [ "environment:development" ],
+		"staticHandling": {
+			"forceUpdate": true
+		}
+	},
+	{
+		"settings": ["device:iphone"],
+		"selector": "iphone"
+	}
+]
