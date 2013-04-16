@@ -57,10 +57,18 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 					flickr = r[3].photo;
 
 				try {
-					me.processFlickr(flickr);
-					me.processEvents(events);
-					me.processTwitter(twitter);
-					me.processWeather(weather);
+					if(this.flickr) {
+						me.processFlickr(flickr);
+					}
+					if(this.events) {
+						me.processEvents(events);
+					}
+					if(this.twitter) {
+						me.processTwitter(twitter);
+					}
+					if(this.weather) {
+						me.processWeather(weather);
+					}
 				} catch(e) {
 					Y.log('Error: ' + e);
 				} finally {
