@@ -34,10 +34,24 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 				{
 					e.preventDefault();
 					e.stopPropagation();
-					me.fireAndRender(e);
+					me.fireAndRenderServer(e);
 				}
 			});
         },
+
+		fireAndRenderServer: function(e) {
+			var me = this,
+				city;
+
+			this.city.setAttribute('disabled', 'disabled');
+			city = this.city.get("value");
+			this.mojitProxy.invoke('getAll', { params: { body: { city: city }}}, function(err, response) {
+				if(!err) {
+					me.node.one('#results').set('innerHTML', response);
+				}
+				me.city.removeAttribute('disabled');
+			});
+		},
 
 		fireAndRender: function(e) {
 			var me = this,

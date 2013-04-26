@@ -1,7 +1,7 @@
 [
 	{
 		"settings": [ "master" ],
-		"appPort": "8666",
+		"appPort": "8777",
 		"specs": {
 			"main_ui": {
 				"type": "HTMLFrameMojit",

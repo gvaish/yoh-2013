@@ -1,0 +1,22 @@
+<div id="flickr">
+	{{#photos}}
+	<img src='http://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg' width='200'>
+	{{/photos}}
+</div>
+<div id="weather">
+	{{#weather}}
+	<div>{{title}}</div>
+	<div>Temperature: <b>{{#item}}{{#condition}}{{temp}}{{/condition}}{{/item}} &deg;{{#units}}{{temperature}}{{/units}}</b></div>
+	<div>Wind Speed: <b>{{#wind}}{{speed}}{{/wind}} {{#units}}{{speed}}{{/units}}</b></div>
+	<div>Condition: <b>{{#item}}{{#condition}}{{text}}{{/condition}}{{/item}}</b></div>
+	
+	{{/weather}}
+</div>
+<div id="twitter">
+	{{#tweets}}
+	<div class='item'>
+		<div><a href='http://twitter.com/{{from_user}}/status/{{id_str}}'>{{text}}</a><div>
+		<div>by <span class='b'><a href='http://twitter.com/{{from_user}}' target='_blank'>{{from_user}}</a></span></div>
+	</div>
+	{{/tweets}}
+</div>
