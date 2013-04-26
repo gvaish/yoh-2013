@@ -1,0 +1,22 @@
+[
+    {
+        "settings": [ "master" ],
+        "appPort": "8666",
+        "specs": {
+			"main_ui": {
+				"type": "HTMLFrameMojit",
+				"config": {
+					"deploy": true,
+					"child": { "type": "ylatest"},
+					"title": "Latest in town"
+				}
+			}
+		}
+    },
+    {
+        "settings": [ "environment:development" ],
+        "staticHandling": {
+            "forceUpdate": true
+        }
+    }
+]

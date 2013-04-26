@@ -1,0 +1,10 @@
+
+.flickr {
+	max-width: 240px;
+	border: 1px solid gray;
+	border-radius: 4px;
+	padding: 4px;
+	margin-top: 10px;
+	height: 400px;
+	overflow: auto;
+}
