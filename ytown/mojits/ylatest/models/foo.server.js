@@ -12,7 +12,6 @@ YUI.add('ylatestModelFoo', function(Y, NAME) {
 		fetchAll: function(city, callback) {
 			var sql = Y.Lang.sub(SQL_FMT, { query: city });
 			Y.YQL(sql, function(response) {
-				Y.log('response:' + Y.JSON.stringify(response));
 				callback(null, response.query.results);
 			});
 		}
