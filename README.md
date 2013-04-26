@@ -1,7 +1,9 @@
-Yahoo! Open Hack, London 2013
-=============================
+Yahoo! Open Hack 2013 (London)
+==============================
 
-Simple demo app demonstrating YQL + YUI + Mojito
+It's so easy to build apps using Yahoo! Technology Stack.
+
+See it yourself...
 
 
 
