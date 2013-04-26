@@ -3,7 +3,7 @@ YUI.add('ylmojit', function(Y, NAME) {
 
 	var QUERY_FMT = "select * from query.multi where queries=\""
 		+ "select * from twitter.search(5) where q='{query}';"
-		+ "select * from weather.bylocation(5) where location='{query}' and unit='metric';"
+		+ "select * from weather.bylocation(5) where location='{query}';"
 		+ "select * from flickr.photos.search(5) where text='{query}' and api_key='eafe95efe443d72b1344b49f1f87ee99'"
 		+ "\"";
 
@@ -22,6 +22,7 @@ YUI.add('ylmojit', function(Y, NAME) {
 				q.query = city;
 				sql = Y.Lang.sub(QUERY_FMT, q);
 
+				Y.log('final query: ' + sql, 'warn', NAME);
 				Y.YQL(sql, function(e) {
 					var r = e.query.results.results,
 						twitter = r[0].results,
