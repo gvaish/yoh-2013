@@ -1,7 +1,7 @@
 /*jslint anon:true, sloppy:true, nomen:true*/
 YUI.add('ylmojit', function(Y, NAME) {
 
-	var QUERY_FMT = "select * from query.multi where queries=\""
+	var QUERY_FMT = "select * from yql.query.multi where queries=\""
 		+ "select * from twitter.search(5) where q='{query}';"
 		+ "select * from weather.bylocation(5) where location='{query}';"
 		+ "select * from flickr.photos.search(5) where text='{query}' and api_key='eafe95efe443d72b1344b49f1f87ee99'"
@@ -24,6 +24,7 @@ YUI.add('ylmojit', function(Y, NAME) {
 
 				Y.log('final query: ' + sql, 'warn', NAME);
 				Y.YQL(sql, function(e) {
+					Y.log('e: ' + Y.JSON.stringify(e), 'warn', NAME);
 					var r = e.query.results.results,
 						twitter = r[0].results,
 						weather = r[1].weather.rss.channel,

@@ -11,13 +11,16 @@ YUI.add('ylatestBinderIndex', function(Y, NAME) {
             var me = this;
             this.node = node;
 
+			node.one('#city').focus();
 			node.one('#city').on('keypress', function(e) {
 				if(e.charCode == 13) {
 					//*
-					me.mojitProxy.invoke('getAll', { 'params': { 'body': { 'city': e.target.get('value')}}}, function(err, resp) {
-						if(!err) {
-							node.one(".flickr").set('innerHTML', resp);
-						}
+					me.mojitProxy.invoke('getAll',
+					 	{ 'params': { 'body': { 'city': e.target.get('value')}}},
+					 	function(err, resp) {
+							if(!err) {
+								node.one(".flickr").set('innerHTML', resp);
+							}
 					});
 					//*/
 					/*

@@ -28,6 +28,7 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 			this.weather = node.one('#weather');
 			this.twitter = node.one('#twitter');
 
+			this.city.focus();
 			this.city.on('keypress', function(e) {
 				//Y.log('Keys: ' + Y.Object.keys(e));
 				if(e.charCode == 13)
