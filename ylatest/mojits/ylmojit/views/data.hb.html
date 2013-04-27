@@ -9,13 +9,21 @@
 	<div>Temperature: <b>{{#item}}{{#condition}}{{temp}}{{/condition}}{{/item}} &deg;{{#units}}{{temperature}}{{/units}}</b></div>
 	<div>Wind Speed: <b>{{#wind}}{{speed}}{{/wind}} {{#units}}{{speed}}{{/units}}</b></div>
 	<div>Condition: <b>{{#item}}{{#condition}}{{text}}{{/condition}}{{/item}}</b></div>
-	
 	{{/weather}}
 </div>
+
+<div id="boss">
+	{{#search}}
+	<div class='item'>
+		<div><a href="{{url}}">{{title}}</a></div>
+	</div>
+	{{/search}}
+</div>
+
 <div id="twitter">
 	{{#tweets}}
 	<div class='item'>
-		<div><a href='http://twitter.com/{{from_user}}/status/{{id_str}}'>{{text}}</a><div>
+		<div><a href='http://twitter.com/{{from_user}}/status/{{id_str}}'>{{text}}</a></div>
 		<div>by <span class='b'><a href='http://twitter.com/{{from_user}}' target='_blank'>{{from_user}}</a></span></div>
 	</div>
 	{{/tweets}}

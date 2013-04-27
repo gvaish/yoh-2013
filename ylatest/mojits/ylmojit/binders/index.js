@@ -48,6 +48,7 @@ YUI.add('ylmojitBinderIndex', function(Y, NAME) {
 			city = this.city.get("value");
 			this.mojitProxy.invoke('getAll', { params: { body: { city: city }}}, function(err, response) {
 				if(!err) {
+					Y.log('Response: ' + response, 'warn', NAME);
 					me.node.one('#results').set('innerHTML', response);
 				}
 				me.city.removeAttribute('disabled');
